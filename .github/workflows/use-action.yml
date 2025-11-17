@@ -7,14 +7,14 @@ on:
       default: 'World'
 jobs:
   hello_world_job:
-  runs-on: ubuntu-latest
-  name: A job to say hello
-  steps:
-  - name: Hello world action step
-    id: hello
-    uses: ./.github/actions/hello-world-docker-action
-    with:
-      who-to-greet: ${{ github.event.inputs.who-to-greet }}
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+    - name: Hello world action step
+      id: hello
+      uses: ./.github/actions/hello-world-docker-action
+      with:
+        who-to-greet: ${{ github.event.inputs.who-to-greet }}
 
-  - name: Get the output time
-    run: echo "The time was ${{ steps.hello.outputs.time }}"
+    - name: Get the output time
+      run: echo "The time was ${{ steps.hello.outputs.time }}"
